@@ -1,0 +1,36 @@
+这次我写了一些东西，再提交一次。。这次提交覆盖了之前的提交，更新了备注，我加版本号试试；
+每次提交新版本，需要这几个命令
+
+git add fitst-v1.01.txt
+git commit -m"这次改了什么就写什么，写完还要push到分支"
+git push origin main
+
+接下来 v1.02测试push到其它分支
+
+git checkout -b test  # 创建一个test分支
+
+
+
+# 1. 创建并切换新分支test
+git checkout -b test
+# 2. 将文件加入暂存区
+git add first-v1.02.txt
+# 3. 提交到本地仓库
+git commit -m "新增first-v1.02.txt测试文件"
+# 4. 推送远程test分支（首次推送需要加 -u）
+git push -u origin test
+
+后创建的分支，包含前面分支的所有文件，此后上传文件都在后创建的分支中
+
+
+在本地切换到 test 分支查看文件
+git checkout test
+
+
+如果你想把 test 分支代码合并到 main 分支（本地操作方式，不用网页 PR）
+# 先切回main分支
+git checkout main
+# 将test分支合并进main
+git merge test
+# 合并完成后推送到远程main
+git push origin main
